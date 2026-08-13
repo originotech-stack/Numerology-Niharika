@@ -1,0 +1,14 @@
+
+> niharika-astro@1.0.0 dev
+> next dev -p 3000
+
+   ▲ Next.js 15.5.10
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.7:3000
+
+ ✓ Starting...
+ ✓ Ready in 2.1s
+ ○ Compiling / ...
+ ✓ Compiled / in 4.2s (568 modules)
+ GET / 200 in 4611ms
+ ✓ Compiled in 175ms (236 modules)

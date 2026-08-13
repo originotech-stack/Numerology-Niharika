@@ -12,25 +12,24 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  title: 'Pandit Vishnu Sharma | Pooja & Marriage Booking',
+  title: 'Niharika Astro | Numerology Consultation',
   description:
-    'Book Pandit Vishnu Sharma for pooja, marriage, griha pravesh, and spiritual rituals. Easy WhatsApp booking for fast confirmation.',
+    'Premium numerology consultation demo website for Niharika Astro with calculator, appointment booking slots, and payment preview.',
   alternates: {
     canonical: 'https://example.com/'
   },
   openGraph: {
     type: 'website',
     url: 'https://example.com/',
-    siteName: 'Pandit Vishnu Sharma',
-    title: 'Pandit Vishnu Sharma | Pooja & Marriage Booking',
+    siteName: 'Niharika Astro',
+    title: 'Niharika Astro | Numerology Consultation',
     description:
-      'Book Pandit Vishnu Sharma for pooja and marriage ceremonies through WhatsApp.'
+      'Numerology website demo with services, calculator, consultancy booking, testimonials, FAQ, and contact sections.'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pandit Vishnu Sharma | Pooja & Marriage Booking',
-    description:
-      'SEO-friendly static website for booking pooja and marriage rituals via WhatsApp.'
+    title: 'Niharika Astro | Numerology Consultation',
+    description: 'Premium numerology website demo with booking and payment preview.'
   },
   robots: {
     index: true,
