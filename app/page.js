@@ -130,6 +130,7 @@ export default function Home() {
   const [selectedSlot, setSelectedSlot] = useState(slotTimes[1]);
   const [selectedPlan, setSelectedPlan] = useState(consultationPlans[1]);
   const [paymentDone, setPaymentDone] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const today = new Date();
@@ -165,13 +166,18 @@ export default function Home() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-[#eadfce] bg-[#fffaf2]/90 backdrop-blur-xl">
-        <div className="mx-auto flex w-[94%] max-w-7xl items-center justify-between py-4">
-          <a href="#home" className="flex items-center gap-3" aria-label="Niharika Astro home">
+        <div className="mx-auto flex w-[94%] max-w-7xl items-center justify-between gap-3 py-4">
+          <a
+            href="#home"
+            className="flex min-w-0 items-center gap-3"
+            aria-label="Niharika Astro home"
+            onClick={() => setMobileMenuOpen(false)}
+          >
             <span className="grid h-11 w-11 place-items-center rounded-full bg-[#211516] text-lg font-black text-[#f7c76b] shadow-soft">
               NA
             </span>
-            <span>
-              <span className="block font-display text-xl font-bold text-[#211516]">Niharika Astro</span>
+            <span className="min-w-0">
+              <span className="block truncate font-display text-lg font-bold text-[#211516] sm:text-xl">Niharika Astro</span>
               <span className="block text-xs font-bold uppercase text-[#8b5a2b]">Numerology Studio</span>
             </span>
           </a>
@@ -186,11 +192,45 @@ export default function Home() {
 
           <a
             href="#consultancy"
-            className="rounded-full bg-[#211516] px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#3d292b]"
+            className="hidden rounded-full bg-[#211516] px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#3d292b] sm:inline-flex"
+            onClick={() => setMobileMenuOpen(false)}
           >
             Book Demo
           </a>
+
+          <button
+            type="button"
+            className="inline-grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[#dcc8b2] bg-white text-[#211516] lg:hidden"
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
+          >
+            <span className="grid w-5 gap-1.5">
+              <span className={`h-0.5 rounded-full bg-current transition ${mobileMenuOpen ? 'translate-y-2 rotate-45' : ''}`} />
+              <span className={`h-0.5 rounded-full bg-current transition ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+              <span className={`h-0.5 rounded-full bg-current transition ${mobileMenuOpen ? '-translate-y-2 -rotate-45' : ''}`} />
+            </span>
+          </button>
         </div>
+
+        {mobileMenuOpen && (
+          <nav
+            id="mobile-menu"
+            className="mx-auto mb-4 grid w-[94%] gap-2 rounded-2xl border border-[#eadfce] bg-[#fffaf2] p-3 shadow-soft lg:hidden"
+          >
+            {navItems.map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="rounded-xl px-4 py-3 text-sm font-bold text-[#53433a] transition hover:bg-[#f5efe6] hover:text-[#b35f3d]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
+          </nav>
+        )}
       </header>
 
       <main id="home">
